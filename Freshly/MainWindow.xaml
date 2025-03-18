@@ -21,12 +21,14 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-                <RowDefinition Height="50px" />
+                <RowDefinition Height="55px" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid>
                 <Border Background="#CCC5B9" CornerRadius="6, 0, 0, 0" MouseDown="Border_MouseDown"/>
+                <Image Source="pack://application:,,,/Images/CarrotLogo.png"  Style="{StaticResource Logo_Style}"/>
+                <TextBlock Text="Freshly" Style="{StaticResource Title_Style}" />
             </Grid>
             
             <Grid Grid.Column="1" >
