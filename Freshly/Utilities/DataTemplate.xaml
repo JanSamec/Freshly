@@ -1,9 +1,44 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:view="clr-namespace:Freshly.View"
-                    xmlns:vm="clr-namespace:Freshly.ViewModel"   >
+                    xmlns:vm="clr-namespace:Freshly.ViewModel" >
 
-
+    <DataTemplate DataType="{x:Type vm:Bakery1VM}">
+        <view:Bakery1 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Bakery2VM}">
+        <view:Bakery2 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Bakery3VM}">
+        <view:Bakery1 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DairyVM}">
+        <view:Dairy />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:DrinksVM}">
+        <view:Drinks />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Meat1VM}">
+        <view:Meat1 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Meat2VM}">
+        <view:Meat2 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Meat3VM}">
+        <view:Meat3 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Fresh1VM}">
+        <view:Fresh1 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Fresh2VM}">
+        <view:Fresh2 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Fresh3VM}">
+        <view:Fresh3 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:HomeVM}">
+        <view:Home />
+    </DataTemplate>
 
 
 </ResourceDictionary>
