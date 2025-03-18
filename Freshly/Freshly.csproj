@@ -9,17 +9,57 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Lexend-VariableFont_wght.ttf" />
+    <None Remove="Fonts\static\Lexend-Black.ttf" />
+    <None Remove="Fonts\static\Lexend-Bold.ttf" />
+    <None Remove="Fonts\static\Lexend-ExtraBold.ttf" />
+    <None Remove="Fonts\static\Lexend-ExtraLight.ttf" />
+    <None Remove="Fonts\static\Lexend-Light.ttf" />
+    <None Remove="Fonts\static\Lexend-Medium.ttf" />
+    <None Remove="Fonts\static\Lexend-Regular.ttf" />
+    <None Remove="Fonts\static\Lexend-SemiBold.ttf" />
+    <None Remove="Fonts\static\Lexend-Thin.ttf" />
     <None Remove="Images\CarrotLogo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="Fonts\" />
-    <Folder Include="View\" />
-    <Folder Include="ViewModel\" />
+    <Resource Include="Fonts\Lexend-VariableFont_wght.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\static\Lexend-SemiBold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\static\Lexend-Black.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\static\Lexend-Bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\static\Lexend-ExtraBold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\static\Lexend-ExtraLight.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\static\Lexend-Light.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\static\Lexend-Medium.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\static\Lexend-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\static\Lexend-Thin.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\CarrotLogo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

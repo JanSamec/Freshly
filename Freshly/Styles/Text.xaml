@@ -41,7 +41,7 @@
        TargetType="TextBlock">
 
         <Setter Property="FontFamily"
-            Value="pack://application:,,,/Freshly;component/Fonts/#Lexend ExtraBold" />
+            Value="pack://application:,,,/Fonts/static/#Lexend Bold" />
         <Setter Property="VerticalAlignment"
             Value="Center" />
         <Setter Property="HorizontalAlignment"
