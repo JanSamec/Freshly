@@ -43,6 +43,15 @@
             
             <Grid Grid.Column="1" >
                 <Border CornerRadius="0, 6, 0, 0" Background="#FFFCF2" MouseDown="Border_MouseDown" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,5,0">
+                    <Button x:Name="btnMinimize" Style="{StaticResource WindowControlButtonStyle}" Click="Minimize_Click">
+                        <Image Source="pack://application:,,,/Images/MinimizeIcon.png" Width="14" Height="14"/>
+                    </Button>
+                    
+                    <Button x:Name="btnClose" Style="{StaticResource WindowControlButtonStyle}" Click="Close_Click">
+                        <Image Source="pack://application:,,,/Images/CloseIcon.png" Width="14" Height="14"/>
+                    </Button>
+                </StackPanel>
             </Grid>
             
             <!--SideNavMenu-->
