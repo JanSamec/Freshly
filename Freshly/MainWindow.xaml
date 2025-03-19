@@ -15,12 +15,19 @@
         ResizeMode="CanResize"
         
         >
+    <Window.DataContext>
+        <vm:NavigationVM />
+    </Window.DataContext>
+    
+    <Window.Resources>
+        <Menu:BoolToVisibilityConverter x:Key="BoolVis" />
+    </Window.Resources>
 
-    <Border Background="#CCC5B9"
+    <Border Background="#FFFCF2"
             CornerRadius="6">
         <Grid>
         <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160px" />
+                <ColumnDefinition Width="200px" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -29,13 +36,116 @@
             </Grid.RowDefinitions>
 
             <Grid>
-                <Border Background="#CCC5B9" CornerRadius="6, 0, 0, 0" MouseDown="Border_MouseDown"/>
-                <Image Source="pack://application:,,,/Images/CarrotLogo.png"  Style="{StaticResource Logo_Style}"/>
-                <TextBlock Text="Freshly" Style="{StaticResource Title_Style}" />
+                <Border Background="#FFFCF2" CornerRadius="6, 0, 0, 0" MouseDown="Border_MouseDown"/>
+                <Image VerticalAlignment="Bottom" Source="pack://application:,,,/Images/CarrotLogo.png"  Style="{StaticResource Logo_Style}"/>
+                <TextBlock HorizontalAlignment="Center" Text="Freshly" Style="{StaticResource Title_Style}" />
             </Grid>
             
             <Grid Grid.Column="1" >
-                <Border CornerRadius="0, 6, 0, 0" Background="#CCC5B9" MouseDown="Border_MouseDown" />
+                <Border CornerRadius="0, 6, 0, 0" Background="#FFFCF2" MouseDown="Border_MouseDown" />
+            </Grid>
+            
+            <!--SideNavMenu-->
+            
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.04*" />
+                    <RowDefinition Height="0.92*" />
+                    <RowDefinition Height="0.04*" />
+                </Grid.RowDefinitions>
+                <Border x:Name="SideNavMenu"
+                        Grid.Row="1"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Left"
+                        Margin="16, 0, 0, 0"
+                        MinHeight="250"
+                        CornerRadius="12"
+                        Background="#EB5E28">
+                
+                    <StackPanel x:Name="NavButtonContainer"
+                                Orientation="Vertical"
+                                VerticalAlignment="Top"
+                                >
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" >
+                            <Grid>
+                                <Image Source="pack://application:,,,/Images/HomeIcon.png" Style="{StaticResource Image_Style}" />
+                            <TextBlock Text="Home" Style="{StaticResource Text_Style}" />
+                            </Grid>
+                        </Menu:Btn>
+                        
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding FreshCommand}" >
+                            <Grid>
+                                <Image Source="pack://application:,,,/Images/FreshIcon.png" Style="{StaticResource Image_Style}" />
+                                <TextBlock Text="Fresh" Style="{StaticResource Text_Style}" />
+                            </Grid>
+                        </Menu:Btn>
+
+                        <StackPanel Visibility="{Binding IsFreshSubmenuOpen, Converter={StaticResource BoolVis}}" >
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh1Command}" >
+                                <TextBlock Text="Fruit" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh2Command}" >
+                                <TextBlock Text="Vegetables" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh3Command}" >
+                                <TextBlock Text="Organic" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                        </StackPanel>
+                        
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding BakeryCommand}" >
+                            <Grid>
+                                <Image Source="pack://application:,,,/Images/BreadIcon.png" Style="{StaticResource Image_Style}" />
+                                <TextBlock Text="Bakery" Style="{StaticResource Text_Style}" />
+                            </Grid>
+                        </Menu:Btn>
+
+                        <StackPanel Visibility="{Binding IsBakerySubmenuOpen, Converter={StaticResource BoolVis}}" >
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery1Command}" >
+                                <TextBlock Text="Breads" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery2Command}" >
+                                <TextBlock Text="Pastries" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery3Command}" >
+                                <TextBlock Text="Specialty Bakes" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                        </StackPanel>
+
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding MeatCommand}" >
+                            <Grid>
+                                <Image Source="pack://application:,,,/Images/MeatIcon.png" Style="{StaticResource Image_Style}" />
+                                <TextBlock Text="Meat" Style="{StaticResource Text_Style}" />
+                            </Grid>
+                        </Menu:Btn>
+
+                        <StackPanel Visibility="{Binding IsMeatSubmenuOpen, Converter={StaticResource BoolVis}}" >
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat1Command}" >
+                                <TextBlock Text="Red Meat" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat2Command}" >
+                                <TextBlock Text="Poultry" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat3Command}" >
+                                <TextBlock Text="Specialty Cuts" Style="{StaticResource SubText_Style}" />
+                            </Menu:Btn>
+                        </StackPanel>
+
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding DairyCommand}" >
+                            <Grid>
+                                <Image Source="pack://application:,,,/Images/DairyIcon.png" Style="{StaticResource Image_Style}" />
+                                <TextBlock Text="Dairy" Style="{StaticResource Text_Style}" />
+                            </Grid>
+                        </Menu:Btn>
+
+                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding DrinksCommand}" >
+                            <Grid>
+                                <Image Source="pack://application:,,,/Images/DrinkIcon.png" Style="{StaticResource Image_Style}" />
+                                <TextBlock Text="Drinks" Style="{StaticResource Text_Style}" />
+                            </Grid>
+                        </Menu:Btn>
+
+                    </StackPanel>
+                </Border>
             </Grid>
             
             

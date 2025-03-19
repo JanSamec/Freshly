@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="Text_Style"
        TargetType="TextBlock">
-
+        
         <Setter Property="FontFamily"
-            Value="pack://application:,,,/Freshly;component/Fonts/#Lexend Light" />
+            Value="pack://application:,,,/Freshly;component/Fonts/#Lexend Regular" />
         <Setter Property="VerticalAlignment"
             Value="Center" />
         <Setter Property="HorizontalAlignment"
@@ -12,9 +12,9 @@
         <Setter Property="Foreground"
             Value="#252422" />
         <Setter Property="FontSize"
-            Value="15" />
+            Value="16" />
         <Setter Property="Margin"
-            Value="20,0,0,0" />
+            Value="42,0,0,0" />
 
     </Style>
 
@@ -51,7 +51,7 @@
         <Setter Property="FontSize"
             Value="24" />
         <Setter Property="Margin"
-            Value="56,10,0,0" />
+            Value="20,10,0,0" />
 
     </Style>
 </ResourceDictionary>
