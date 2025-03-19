@@ -23,8 +23,8 @@ namespace Freshly
             var screenHeight = SystemParameters.PrimaryScreenHeight;
 
             // Set window size dynamically coz its epic B)
-            this.Width = screenWidth * 0.5;
-            this.Height = screenHeight * 0.5;
+            this.Width = screenWidth * 0.4;
+            this.Height = screenHeight * 0.4;
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {

@@ -19,14 +19,18 @@
     <None Remove="Fonts\static\Lexend-Regular.ttf" />
     <None Remove="Fonts\static\Lexend-SemiBold.ttf" />
     <None Remove="Fonts\static\Lexend-Thin.ttf" />
+    <None Remove="Images\ArrowIcon.png" />
     <None Remove="Images\BreadIcon.png" />
     <None Remove="Images\CarrotLogo.png" />
+    <None Remove="Images\CloseIcon.png" />
     <None Remove="Images\DairyIcon.png" />
     <None Remove="Images\DrinkIcon.png" />
     <None Remove="Images\Frame.png" />
     <None Remove="Images\FreshIcon.png" />
+    <None Remove="Images\FullscreenIcon.png" />
     <None Remove="Images\HomeIcon.png" />
     <None Remove="Images\MeatIcon.png" />
+    <None Remove="Images\MinimizeIcon.png" />
     <None Remove="Images\Search_light.png" />
     <None Remove="Images\SVGRepo_iconCarrier.png" />
   </ItemGroup>
@@ -69,10 +73,16 @@
     <Resource Include="Fonts\static\Lexend-Thin.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\ArrowIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\BreadIcon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\CarrotLogo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CloseIcon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\DairyIcon.png">
@@ -84,10 +94,16 @@
     <Resource Include="Images\FreshIcon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\FullscreenIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\HomeIcon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\MeatIcon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MinimizeIcon.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Search_light.png">

@@ -55,10 +55,12 @@
                 </Grid.RowDefinitions>
                 <Border x:Name="SideNavMenu"
                         Grid.Row="1"
-                        VerticalAlignment="Stretch"
+                        VerticalAlignment="Top"
                         HorizontalAlignment="Left"
-                        Margin="16, 0, 0, 0"
+                        Margin="16, 10, 0, 0"
+                        Padding="0, 11, 0, 26"
                         MinHeight="250"
+                        Height="Auto"
                         CornerRadius="12"
                         Background="#EB5E28">
                 
@@ -73,7 +75,7 @@
                             </Grid>
                         </Menu:Btn>
                         
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding FreshCommand}" >
+                        <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding FreshCommand}" >
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/FreshIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Fresh" Style="{StaticResource Text_Style}" />
@@ -92,7 +94,7 @@
                             </Menu:Btn>
                         </StackPanel>
                         
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding BakeryCommand}" >
+                        <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding BakeryCommand}" >
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/BreadIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Bakery" Style="{StaticResource Text_Style}" />
@@ -111,7 +113,7 @@
                             </Menu:Btn>
                         </StackPanel>
 
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding MeatCommand}" >
+                        <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding MeatCommand}" >
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/MeatIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Meat" Style="{StaticResource Text_Style}" />
@@ -132,7 +134,7 @@
 
                         <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding DairyCommand}" >
                             <Grid>
-                                <Image Source="pack://application:,,,/Images/DairyIcon.png" Style="{StaticResource Image_Style}" />
+                                <Image Margin="10, 0, 0, 0"  Source="pack://application:,,,/Images/DairyIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Dairy" Style="{StaticResource Text_Style}" />
                             </Grid>
                         </Menu:Btn>
