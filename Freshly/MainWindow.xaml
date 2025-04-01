@@ -106,8 +106,8 @@
                         <Border.RenderTransform>
                             <StaticResourceExtension ResourceKey="NavMenuScaleTransform" />
                         </Border.RenderTransform>
-
-                        <StackPanel x:Name="NavButtonContainer"
+                        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Style="{StaticResource CustomScrollViewerStyle}" >
+                            <StackPanel x:Name="NavButtonContainer"
                                 Orientation="Vertical"
                                 VerticalAlignment="Top"
                                 >
@@ -190,7 +190,8 @@
                         </Menu:Btn>
 
                     </StackPanel>
-                </Border>
+                        </ScrollViewer>
+                    </Border>
                 </Grid>
             </Grid>
             
