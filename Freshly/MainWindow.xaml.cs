@@ -91,7 +91,7 @@ namespace Freshly
 
             double baseSpacing = 50;
             double scaledSpacing = baseSpacing * scaleFactor;
-            Resources["LogoTitleSpacing"] = new Thickness(scaledSpacing, 0, 0, 0);
+            Resources["LogoTitleSpacing"] = new Thickness(scaledSpacing, 8, 0, 0);
 
 
             Resources["ButtonMargin"] = new Thickness(0, 0, 0, 0);
