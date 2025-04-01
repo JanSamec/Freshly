@@ -94,15 +94,72 @@
 
     </Style>
 
-    <Style x:Key="WindowControlButtonStyle" TargetType="{x:Type Button}">
+    <Style x:Key="MinimizeButton" TargetType="Border">
         <Setter Property="Width" Value="20"/>
         <Setter Property="Height" Value="20"/>
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="Margin" Value="2, 2, 0, 0"/>
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="2,0,2,0"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush x:Name="MinimizeButtonBackground" Color="Transparent" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Border.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                From="Transparent"
+                                To="#FFE6D5"
+                                Duration="0:0:0.1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Border.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                From="#FFE6D5"
+                                To="Transparent"
+                                Duration="0:0:0.1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CloseButton" TargetType="Border">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="2,0,2,0"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush x:Name="CloseButtonBackground" Color="Transparent" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Border.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                From="Transparent"
+                                To="#F8836B"
+                                Duration="0:0:0.1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Border.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                From="#F8836B"
+                                To="Transparent"
+                                Duration="0:0:0.1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="BtnSectionStyle" TargetType="RadioButton">

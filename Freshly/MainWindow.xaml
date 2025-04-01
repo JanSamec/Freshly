@@ -8,12 +8,13 @@
         xmlns:Menu="clr-namespace:Freshly.Utilities"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
+        MinHeight="480" MinWidth="550"
         AllowsTransparency="True"
         WindowStyle="None"
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResize"
-        
+        ResizeMode="CanResizeWithGrip"
+        SizeChanged="Window_SizeChanged"
         >
     <Window.DataContext>
         <vm:NavigationVM />
@@ -21,36 +22,63 @@
     
     <Window.Resources>
         <Menu:BoolToVisibilityConverter x:Key="BoolVis" />
+        <ScaleTransform x:Key="LogoScaleTransform" ScaleX="1" ScaleY="1" />
+        <ScaleTransform x:Key="TitleScaleTransform" ScaleX="1" ScaleY="1" />
+        <ScaleTransform x:Key="NavMenuScaleTransform" ScaleX="1" ScaleY="1" />
+        <ScaleTransform x:Key="WindowControlsScaleTransform" ScaleX="1" ScaleY="1" />
+        <Thickness x:Key="LogoTitleSpacing">50,0,0,0</Thickness>
+        <Thickness x:Key="ButtonMargin">0,5,0,0</Thickness>
+        <Thickness x:Key="WindowControlsMargin">0,0,5,0</Thickness>
     </Window.Resources>
 
     <Border Background="#FFFCF2"
             CornerRadius="6">
         <Grid>
         <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200px" />
+                <ColumnDefinition x:Name="NavColumnDefinition" Width="0.2*"  MinWidth="240px" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-                <RowDefinition Height="55px" />
+                <RowDefinition Height="auto" MinHeight="55px" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            <!-- Logo -->
+            <Grid x:Name="LogoContainer">
+                <Border Background="#FFFCF2" CornerRadius="6, 0, 0, 0" MouseDown="Border_MouseDown" Margin="15,10,0,0"/>
+                
+                    
 
-            <Grid>
-                <Border Background="#FFFCF2" CornerRadius="6, 0, 0, 0" MouseDown="Border_MouseDown"/>
-                <Image VerticalAlignment="Bottom" Source="pack://application:,,,/Images/CarrotLogo.png"  Style="{StaticResource Logo_Style}"/>
-                <TextBlock HorizontalAlignment="Center" Text="Freshly" Style="{StaticResource Title_Style}" />
+                    <Image x:Name="LogoImage" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                           Margin="10,0,0,0" Source="pack://application:,,,/Images/CarrotLogo.png"  
+                           Style="{StaticResource Logo_Style}" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <StaticResourceExtension ResourceKey="LogoScaleTransform" />
+                        </Image.RenderTransform>
+                    </Image>
+
+                    <TextBlock x:Name="TitleText" Grid.Column="1" VerticalAlignment="Center" 
+                               Margin="{StaticResource LogoTitleSpacing}" Text="Freshly" 
+                               Style="{StaticResource Title_Style}" RenderTransformOrigin="0.5,0.5">
+                        <TextBlock.RenderTransform>
+                            <StaticResourceExtension ResourceKey="TitleScaleTransform" />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                
             </Grid>
-            
+            <!-- Window Control buttons -->
             <Grid Grid.Column="1" >
                 <Border CornerRadius="0, 6, 0, 0" Background="#FFFCF2" MouseDown="Border_MouseDown" />
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,5,0">
-                    <Button x:Name="btnMinimize" Style="{StaticResource WindowControlButtonStyle}" Click="Minimize_Click">
+                <StackPanel x:Name="WindowControls" Orientation="Horizontal" HorizontalAlignment="Right" Margin="{StaticResource WindowControlsMargin}" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <StaticResourceExtension ResourceKey="WindowControlsScaleTransform" />
+                    </StackPanel.RenderTransform>
+                    <Border x:Name="btnMinimize" Style="{StaticResource MinimizeButton}" MouseLeftButtonDown="Minimize_Click">
                         <Image Source="pack://application:,,,/Images/MinimizeIcon.png" Width="14" Height="14"/>
-                    </Button>
-                    
-                    <Button x:Name="btnClose" Style="{StaticResource WindowControlButtonStyle}" Click="Close_Click">
+                    </Border>
+
+                    <Border x:Name="btnClose" Style="{StaticResource CloseButton}" MouseLeftButtonDown="Close_Click">
                         <Image Source="pack://application:,,,/Images/CloseIcon.png" Width="14" Height="14"/>
-                    </Button>
+                    </Border>
                 </StackPanel>
             </Grid>
             
@@ -62,29 +90,36 @@
                     <RowDefinition Height="0.92*" />
                     <RowDefinition Height="0.04*" />
                 </Grid.RowDefinitions>
-                <Border x:Name="SideNavMenu"
+                <Grid Grid.Row="1">
+                    <Border x:Name="SideNavMenu"
                         Grid.Row="1"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
-                        Margin="16, 10, 0, 0"
+                        Margin="16,10,0,0"
                         Padding="0, 11, 0, 26"
+                        MinWidth="160"
+                        MaxWidth="300"
                         MinHeight="250"
                         Height="Auto"
                         CornerRadius="12"
-                        Background="#EB5E28">
-                
-                    <StackPanel x:Name="NavButtonContainer"
+                        Background="#EB5E28"
+                        RenderTransformOrigin="0,0">
+                        <Border.RenderTransform>
+                            <StaticResourceExtension ResourceKey="NavMenuScaleTransform" />
+                        </Border.RenderTransform>
+
+                        <StackPanel x:Name="NavButtonContainer"
                                 Orientation="Vertical"
                                 VerticalAlignment="Top"
                                 >
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" >
+                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" Margin="{StaticResource ButtonMargin}">
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/HomeIcon.png" Style="{StaticResource Image_Style}" />
                             <TextBlock Text="Home" Style="{StaticResource Text_Style}" />
                             </Grid>
                         </Menu:Btn>
-                        
-                        <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding FreshCommand}" >
+
+                            <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding FreshCommand}" Margin="{StaticResource ButtonMargin}">
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/FreshIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Fresh" Style="{StaticResource Text_Style}" />
@@ -92,18 +127,18 @@
                         </Menu:Btn>
 
                         <StackPanel Visibility="{Binding IsFreshSubmenuOpen, Converter={StaticResource BoolVis}}" >
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh1Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh1Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Fruit" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh2Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh2Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Vegetables" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh3Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Fresh3Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Organic" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
                         </StackPanel>
-                        
-                        <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding BakeryCommand}" >
+
+                            <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding BakeryCommand}" Margin="{StaticResource ButtonMargin}">
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/BreadIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Bakery" Style="{StaticResource Text_Style}" />
@@ -111,18 +146,18 @@
                         </Menu:Btn>
 
                         <StackPanel Visibility="{Binding IsBakerySubmenuOpen, Converter={StaticResource BoolVis}}" >
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery1Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery1Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Breads" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery2Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery2Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Pastries" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery3Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Bakery3Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Specialty Bakes" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
                         </StackPanel>
 
-                        <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding MeatCommand}" >
+                            <Menu:Btn Style="{StaticResource BtnSectionStyle}" Command="{Binding MeatCommand}" Margin="{StaticResource ButtonMargin}">
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/MeatIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Meat" Style="{StaticResource Text_Style}" />
@@ -130,25 +165,25 @@
                         </Menu:Btn>
 
                         <StackPanel Visibility="{Binding IsMeatSubmenuOpen, Converter={StaticResource BoolVis}}" >
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat1Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat1Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Red Meat" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat2Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat2Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Poultry" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
-                            <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat3Command}" >
+                                <Menu:Btn Style="{StaticResource SubBtnStyle}" Command="{Binding Meat3Command}" Margin="{StaticResource ButtonMargin}">
                                 <TextBlock Text="Specialty Cuts" Style="{StaticResource SubText_Style}" />
                             </Menu:Btn>
                         </StackPanel>
 
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding DairyCommand}" >
+                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding DairyCommand}" Margin="{StaticResource ButtonMargin}">
                             <Grid>
                                 <Image Margin="10, 0, 0, 0"  Source="pack://application:,,,/Images/DairyIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Dairy" Style="{StaticResource Text_Style}" />
                             </Grid>
                         </Menu:Btn>
 
-                        <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding DrinksCommand}" >
+                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding DrinksCommand}" Margin="{StaticResource ButtonMargin}">
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/DrinkIcon.png" Style="{StaticResource Image_Style}" />
                                 <TextBlock Text="Drinks" Style="{StaticResource Text_Style}" />
@@ -157,6 +192,7 @@
 
                     </StackPanel>
                 </Border>
+                </Grid>
             </Grid>
             
             

@@ -36,11 +36,6 @@
 
     <Style x:Key="Logo_Style"
  TargetType="Image">
-
-        <Setter Property="HorizontalAlignment"
-      Value="Left" />
-        <Setter Property="VerticalAlignment"
-      Value="Center" />
         <Setter Property="Stretch"
       Value="Uniform" />
         <Setter Property="Height"
@@ -48,7 +43,7 @@
         <Setter Property="Width"
       Value="45" />
         <Setter Property="Margin"
-      Value="20, 12, 0, 0" />
+      Value="10, 12, 0, 0" />
     </Style>
  
 </ResourceDictionary>
