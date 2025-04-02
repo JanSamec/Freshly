@@ -41,7 +41,6 @@ namespace Freshly
                 this.DragMove();
             }
         }
-
         private void Minimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -101,8 +100,8 @@ namespace Freshly
 
             if (SideNavMenu != null && SideNavMenu.Child is StackPanel mainPanel)
             {
-                SideNavMenu.MinWidth = MinNavMenuWidth * scaleFactor * 0.8;
-                SideNavMenu.MaxWidth = MaxNavMenuWidth * scaleFactor * 0.8;
+                SideNavMenu.MinWidth = MinNavMenuWidth * scaleFactor * 0.5;
+                SideNavMenu.MaxWidth = MaxNavMenuWidth * scaleFactor * 0.5;
                 SideNavMenu.MaxHeight = height * 0.6;
                 if (SideNavMenu.Child is ScrollViewer scrollViewer)
                 {

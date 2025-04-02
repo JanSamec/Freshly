@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="CustomScrollBarStyle" TargetType="{x:Type ScrollBar}">
-        <!-- Reduced from 2 to 1.5 to keep it visible but narrower -->
         <Setter Property="Width" Value="1.5"/>
         <Setter Property="Background" Value="#cd4713"/>
         <Setter Property="Template">
@@ -89,7 +88,7 @@
 
                         <Grid Grid.Column="1" Grid.Row="0">
                             <ScrollContentPresenter 
-                                Margin="0,0,0,20" 
+                                Margin="0,0,0,5" 
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                 CanContentScroll="{TemplateBinding CanContentScroll}" />

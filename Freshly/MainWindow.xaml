@@ -111,7 +111,7 @@
                                 Orientation="Vertical"
                                 VerticalAlignment="Top"
                                 >
-                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}" Margin="0, -10,0,0">
+                            <Menu:Btn Style="{StaticResource BtnStyle}" Command="{Binding HomeCommand}">
                             <Grid>
                                 <Image Source="pack://application:,,,/Images/HomeIcon.png" Style="{StaticResource Image_Style}" />
                             <TextBlock Text="Home" Style="{StaticResource Text_Style}" />
