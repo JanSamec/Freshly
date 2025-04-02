@@ -15,10 +15,10 @@ namespace Freshly
 {
     public partial class MainWindow : Window
     {
-        private const double BaseWidth = 550;
+        private const double BaseWidth = 800;
         private const double BaseHeight = 450;
         private const double MinScaleFactor = 0.4;
-        private const double MaxScaleFactor = 1.2;
+        private const double MaxScaleFactor = 1.3;
         private const double MinNavMenuWidth = 120;
         private const double MaxNavMenuWidth = 400;
         private const double MinLogoTitleSpacing = 15;
@@ -101,9 +101,9 @@ namespace Freshly
 
             if (SideNavMenu != null && SideNavMenu.Child is StackPanel mainPanel)
             {
-                SideNavMenu.MinWidth = MinNavMenuWidth * scaleFactor ;
-                SideNavMenu.MaxWidth = MaxNavMenuWidth * scaleFactor ;
-                SideNavMenu.MaxHeight = height * 0.68;
+                SideNavMenu.MinWidth = MinNavMenuWidth * scaleFactor * 0.8;
+                SideNavMenu.MaxWidth = MaxNavMenuWidth * scaleFactor * 0.8;
+                SideNavMenu.MaxHeight = height * 0.6;
                 if (SideNavMenu.Child is ScrollViewer scrollViewer)
                 {
                     scrollViewer.Padding = new Thickness(5, 0, 0, 0); 
